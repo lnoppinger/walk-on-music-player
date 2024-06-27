@@ -34,6 +34,8 @@ for track in tracks_:
     if track.endswith(".mp3"):
         tracks.append(track)
 
+tracks.sort()
+
 
 pygame.mixer.init()
 
@@ -80,10 +82,12 @@ while True:
         nextIndex += 1
         if nextIndex >= len(tracks):
             nextIndex = 0
+        time.sleep(0.2)
     
     elif(key == "nach-links"):
         nextIndex -= 1
         if nextIndex < 0:
             nextIndex = len(track)
+        time.sleep(0.2)
     
     updateConsole()

@@ -20,7 +20,7 @@ for d in data:
         yt = YouTube(d["video"])
         yt.streams.filter(only_audio=True).first().download(filename=d["name"] + ".mp4")
         subprocess.run(
-            'ffmpeg -y -i ' + d["name"] + '.mp4 -ss ' + d["start"] + ' -af "afade=t=in:st=' + d["start"] + ':d=2" ' + d["name"] + '.mp3',
+            'ffmpeg -y -i ' + d["name"] + '.mp4 -ss ' + d["start"] + ' -af "afade=t=in:st=' + d["start"] + ':d=2" -filter:a loudnorm ' + d["name"] + '.mp3',
             stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         
     except Exception as e:
