@@ -1,3 +1,4 @@
 *.mp3
 *.mp4
-data-*.json
+data*.json
+data.json
